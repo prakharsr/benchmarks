@@ -22,7 +22,7 @@ const messagesPerSecond = {
 const bytePerSecondCap = 50 * Math.pow(1024, 2);
 // const bytePerSecondCap = Number.POSITIVE_INFINITY;
 
-const serverUrl = 'coap://localhost:5683';
+const serverUrl = 'coap://192.168.7.1:5683';
 
 console.log(`Trying to connect to ${serverUrl}`);
 

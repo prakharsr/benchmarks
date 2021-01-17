@@ -22,7 +22,7 @@ const messagesPerSecond = {
 const bytePerSecondCap = 50 * Math.pow(1024, 2);
 // const bytePerSecondCap = Number.POSITIVE_INFINITY;
 
-const serverUrl = 'tcp://localhost:1883';
+const serverUrl = 'tcp://192.168.7.1:1883';
 
 console.log(`Trying to connect to ${serverUrl}`);
 
@@ -65,10 +65,10 @@ async function runTest (currentPayloadSizeInByte, currentMessagesPerSecond) {
 
     const client = mqtt.connect(serverUrl);
     await new Promise(resolve => {
-        client.on('connect', () => {
+        client.on('connect', ()=> {
             return resolve();
         });
-    });
+    }).catch((e)=>console.log(e));
 
     const timer = new NanoTimer();
 

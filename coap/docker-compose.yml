@@ -1,0 +1,45 @@
+version: '3'
+services:
+  publisher:
+    image: node:10
+    environment:
+      MQTT_HOST: ${MQTT_HOST}
+    command: "sh -c 'npm install && node publisher.js'"
+    volumes:
+      - './:/var/app'
+    working_dir: /var/app
+
+  nginx:
+    image: nginx:mainline-alpine
+    volumes:
+      - './:/usr/share/nginx/html:ro'
+    ports:
+      - '80:80'
+
+  rabbitmq:
+    image: rabbitmq:3.7.4-alpine
+    volumes:
+      - './servers/rabbitmq/enabled_plugins:/etc/rabbitmq/enabled_plugins:ro'
+    ports:
+      - '1883:1883'
+      # guest / guest
+      - '15672:15672'
+
+  emqttd:
+    build: servers/emqttd
+    ports:
+      - '1883:1883'
+      # admin / public
+      - '18083:18083'
+
+  mosca:
+    image: matteocollina/mosca:v2.8.1
+    ports:
+      - '1883:1883'
+      # - '80:80'
+
+  mosquitto:
+    image: eclipse-mosquitto:1.4.12
+    ports:
+      - '1883:1883'
+      - '9001:9001'

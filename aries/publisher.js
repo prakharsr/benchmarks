@@ -78,7 +78,6 @@ async function runTest (currentPayloadSizeInByte, currentMessagesPerSecond) {
               };
               
               var req = http.request(options, function(res) {
-                res.setEncoding('utf8');
                 res.on('data', function (chunk) {
                 });
               });
@@ -90,7 +89,8 @@ async function runTest (currentPayloadSizeInByte, currentMessagesPerSecond) {
               });
             //   var message = {"content": data};
               // write data to request body
-              req.write(JSON.stringify(data[counter]));
+            //   console.log(JSON.stringify({"content": data[counter].toString()}))
+              req.write(JSON.stringify({"content": data[counter].toString()}));
               req.end();
             counter++;
         };

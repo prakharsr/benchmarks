@@ -29,7 +29,7 @@ server.listen(port, hostname, () => {
   let oldMessageCount = 0;
   let start = null;
 
-  server.on('request', function(req, res) {console.log(req)
+  server.on('request', function(req, res) {
     messageCount += 1;
     if (!start) {
       start = now();

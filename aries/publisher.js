@@ -73,7 +73,7 @@ async function runTest (currentPayloadSizeInByte, currentMessagesPerSecond) {
             var options = {
                 host: '192.168.7.2',
                 port: 8002,
-                path: '/connections/f07eb9cd-f295-48a5-b5f0-0eaa64143ecc/send-message',
+                path: '/connections/3f0a94bb-57f9-447a-b80e-1c3e49b87e22/send-message',
                 method: 'POST'
               };
               
@@ -92,12 +92,13 @@ async function runTest (currentPayloadSizeInByte, currentMessagesPerSecond) {
             //   console.log(JSON.stringify({"content": data[counter].toString()}))
               req.write(data[counter]);
               req.end();
-            counter++;
-        };
+// console.log(counter, data[counter]);            
+counter++;       
+ };
         sendData();
         // console.log(data.length, currentPayloadSizeInByte)
         timer.setInterval(() => {
-            if (data.length >= currentPayloadSizeInByte) {
+            if (counter >= data.length) {
                 timer.clearInterval();
                 return resolve();
             }

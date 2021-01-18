@@ -80,7 +80,7 @@ async function runTest (currentPayloadSizeInByte, currentMessagesPerSecond) {
             var options = {
                 host: '192.168.6.2',
                 port: 8002,
-                path: '/connections/8c19b33f-775a-453b-87da-861bfd7a9657/send-message',
+                path: '/connections/37660b05-a425-47dd-9603-b5131494766e/send-message',
                 method: 'POST'
               };
               

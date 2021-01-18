@@ -1,5 +1,5 @@
 const crypto = require('crypto');
-const coap = require('coap');
+const http = require('http');
 const NanoTimer = require('nanotimer');
 const now = require('performance-now');
 const fs = require('fs');
@@ -22,12 +22,12 @@ const messagesPerSecond = {
 const bytePerSecondCap = 50 * Math.pow(1024, 2);
 // const bytePerSecondCap = Number.POSITIVE_INFINITY;
 
-const serverUrl = 'coap://192.168.7.1:5683';
+// const serverUrl = 'coap://192.168.7.1:5683';
 
-console.log(`Trying to connect to ${serverUrl}`);
+// console.log(`Trying to connect to ${serverUrl}`);
 
 async function init () {
-    console.log('coap test client (publisher)')
+    console.log('aries test client (publisher)')
     let params = [];
     if (resumeLastTest && fs.existsSync(paramsJsonPath)) {
         params = JSON.parse(fs.readFileSync(paramsJsonPath));
@@ -70,15 +70,28 @@ async function runTest (currentPayloadSizeInByte, currentMessagesPerSecond) {
     await new Promise((resolve) => {
         let counter = 0;
         const sendData = () => {
-            var req = coap.request(serverUrl)
-
-            req.on('response', function(res) {
-              res.pipe(data[counter])
-              res.on('end', function() {
-              })
-            })
+            var options = {
+                host: '192.168.6.2',
+                port: 8002,
+                path: '/connections/a4eac28e-db61-4c96-b199-05ddcd5336ab/send-message',
+                method: 'POST'
+              };
+              
+              var req = http.request(options, function(res) {
+                res.setEncoding('utf8');
+                res.on('data', function (chunk) {
+                });
+              });
+        
           
-            req.end()
+              
+              req.on('error', function(e) {
+                console.log('problem with request: ' + e.message);
+              });
+            //   var message = {"content": data};
+              // write data to request body
+              req.write(JSON.stringify(data[counter]));
+              req.end();
             counter++;
         };
         sendData();

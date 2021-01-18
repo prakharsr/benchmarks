@@ -79,9 +79,9 @@ async function runTest (currentPayloadSizeInByte, currentMessagesPerSecond) {
         let counter = 0;
         const sendData = () => {
             var options = {
-                host: '127.0.0.1',
+                host: '192.168.7.2',
                 port: 8002,
-                path: '/connections/8d5b3da3-09c2-4b69-ad1d-b5d14bceb909/send-message',
+                path: '/connections/f07eb9cd-f295-48a5-b5f0-0eaa64143ecc/send-message',
                 method: 'POST'
               };
               

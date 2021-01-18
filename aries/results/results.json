@@ -1,1 +1,219 @@
-[{"payloadSizeInByte":2,"messagesPerSecond":1000,"dataGenerationInMs":762.2052920000006,"executionInMs":117771.69980599999,"allSentInMs":117771.76143099999},{"payloadSizeInByte":16,"messagesPerSecond":1000,"dataGenerationInMs":1712.7428749999817,"executionInMs":108987.443179,"allSentInMs":108987.48863799998},{"payloadSizeInByte":128,"messagesPerSecond":1000,"dataGenerationInMs":1583.321041999996,"executionInMs":299932.057286,"allSentInMs":299932.084161},{"payloadSizeInByte":1024,"messagesPerSecond":1000,"dataGenerationInMs":3517.545999999973,"executionInMs":1411020.325835,"allSentInMs":1411020.378793}]
+[
+    {
+        "payloadSizeInByte": 2,
+        "messagesPerSecond": 1000,
+        "dataGenerationInMs": 0.004978000000008365,
+        "executionInMs": 16.748757999999995,
+        "allSentInMs": 16.751345999999998
+    },
+    {
+        "payloadSizeInByte": 16,
+        "messagesPerSecond": 1000,
+        "dataGenerationInMs": 0.012034999999968932,
+        "executionInMs": 32.88086099999987,
+        "allSentInMs": 32.883916
+    },
+    {
+        "payloadSizeInByte": 128,
+        "messagesPerSecond": 1000,
+        "dataGenerationInMs": 0.017184999999699357,
+        "executionInMs": 129.41228600000022,
+        "allSentInMs": 129.41375400000015
+    },
+    {
+        "payloadSizeInByte": 1024,
+        "messagesPerSecond": 1000,
+        "dataGenerationInMs": 0.004790999999841006,
+        "executionInMs": 1034.7797,
+        "allSentInMs": 1034.7829440000005
+    },
+    {
+        "payloadSizeInByte": 8192,
+        "messagesPerSecond": 1000,
+        "dataGenerationInMs": 0.004408999999213847,
+        "executionInMs": 8192.743720999999,
+        "allSentInMs": 8192.746613
+    },
+    {
+        "payloadSizeInByte": 2,
+        "messagesPerSecond": 11000,
+        "dataGenerationInMs": 0.0025219999988621566,
+        "executionInMs": 3.1915810000009515,
+        "allSentInMs": 3.1926559999992605
+    },
+    {
+        "payloadSizeInByte": 16,
+        "messagesPerSecond": 11000,
+        "dataGenerationInMs": 0.002891000000090571,
+        "executionInMs": 3.908397999999579,
+        "allSentInMs": 3.9096859999990556
+    },
+    {
+        "payloadSizeInByte": 128,
+        "messagesPerSecond": 11000,
+        "dataGenerationInMs": 0.002647999997861916,
+        "executionInMs": 26.99370899999849,
+        "allSentInMs": 26.995528999999806
+    },
+    {
+        "payloadSizeInByte": 1024,
+        "messagesPerSecond": 11000,
+        "dataGenerationInMs": 0.0029150000009394716,
+        "executionInMs": 267.82110100000136,
+        "allSentInMs": 267.8224489999993
+    },
+    {
+        "payloadSizeInByte": 2,
+        "messagesPerSecond": 21000,
+        "dataGenerationInMs": 0.0036379999983182643,
+        "executionInMs": 1.0932620000021416,
+        "allSentInMs": 1.094548000000941
+    },
+    {
+        "payloadSizeInByte": 16,
+        "messagesPerSecond": 21000,
+        "dataGenerationInMs": 0.002419000000372762,
+        "executionInMs": 4.292030000000523,
+        "allSentInMs": 4.29324799999813
+    },
+    {
+        "payloadSizeInByte": 128,
+        "messagesPerSecond": 21000,
+        "dataGenerationInMs": 0.0071600000010221265,
+        "executionInMs": 96.36838799999896,
+        "allSentInMs": 96.36983700000201
+    },
+    {
+        "payloadSizeInByte": 1024,
+        "messagesPerSecond": 21000,
+        "dataGenerationInMs": 0.0035339999994903337,
+        "executionInMs": 364.8684940000021,
+        "allSentInMs": 364.87089200000264
+    },
+    {
+        "payloadSizeInByte": 2,
+        "messagesPerSecond": 31000,
+        "dataGenerationInMs": 0.0031110000018088613,
+        "executionInMs": 0.675600000002305,
+        "allSentInMs": 0.6778250000024855
+    },
+    {
+        "payloadSizeInByte": 16,
+        "messagesPerSecond": 31000,
+        "dataGenerationInMs": 0.0025569999997969717,
+        "executionInMs": 3.921384000001126,
+        "allSentInMs": 3.923667999999452
+    },
+    {
+        "payloadSizeInByte": 128,
+        "messagesPerSecond": 31000,
+        "dataGenerationInMs": 0.0029780000004393514,
+        "executionInMs": 19.54753400000118,
+        "allSentInMs": 19.54999400000088
+    },
+    {
+        "payloadSizeInByte": 1024,
+        "messagesPerSecond": 31000,
+        "dataGenerationInMs": 0.0031100000014703255,
+        "executionInMs": 245.23944800000027,
+        "allSentInMs": 245.24244899999758
+    },
+    {
+        "payloadSizeInByte": 2,
+        "messagesPerSecond": 41000,
+        "dataGenerationInMs": 0.003811000002315268,
+        "executionInMs": 0.593127000000095,
+        "allSentInMs": 0.5964659999990545
+    },
+    {
+        "payloadSizeInByte": 16,
+        "messagesPerSecond": 41000,
+        "dataGenerationInMs": 0.0025710000008984935,
+        "executionInMs": 7.780204999999114,
+        "allSentInMs": 7.783093999998528
+    },
+    {
+        "payloadSizeInByte": 128,
+        "messagesPerSecond": 41000,
+        "dataGenerationInMs": 0.0026340000003983732,
+        "executionInMs": 72.92376299999887,
+        "allSentInMs": 72.92634499999986
+    },
+    {
+        "payloadSizeInByte": 1024,
+        "messagesPerSecond": 41000,
+        "dataGenerationInMs": 0.003311999997094972,
+        "executionInMs": 332.35801100000026,
+        "allSentInMs": 332.3608410000015
+    },
+    {
+        "payloadSizeInByte": 2,
+        "messagesPerSecond": 51000,
+        "dataGenerationInMs": 0.0028239999992365483,
+        "executionInMs": 0.6385650000011083,
+        "allSentInMs": 0.6402219999981753
+    },
+    {
+        "payloadSizeInByte": 16,
+        "messagesPerSecond": 51000,
+        "dataGenerationInMs": 0.0028410000013536774,
+        "executionInMs": 8.418488999996043,
+        "allSentInMs": 8.421826999998302
+    },
+    {
+        "payloadSizeInByte": 128,
+        "messagesPerSecond": 51000,
+        "dataGenerationInMs": 0.0028810000003431924,
+        "executionInMs": 76.7585889999973,
+        "allSentInMs": 76.76105899999675
+    },
+    {
+        "payloadSizeInByte": 1024,
+        "messagesPerSecond": 51000,
+        "dataGenerationInMs": 0.004478999995626509,
+        "executionInMs": 323.697030000003,
+        "allSentInMs": 323.6994629999972
+    },
+    {
+        "payloadSizeInByte": 2,
+        "messagesPerSecond": 61000,
+        "dataGenerationInMs": 0.0026699999943957664,
+        "executionInMs": 5.520864999998594,
+        "allSentInMs": 5.523566999996547
+    },
+    {
+        "payloadSizeInByte": 16,
+        "messagesPerSecond": 61000,
+        "dataGenerationInMs": 0.002678999997442588,
+        "executionInMs": 4.3188890000019455,
+        "allSentInMs": 4.321031999999832
+    },
+    {
+        "payloadSizeInByte": 128,
+        "messagesPerSecond": 61000,
+        "dataGenerationInMs": 0.0023639999999431893,
+        "executionInMs": 46.548023999996076,
+        "allSentInMs": 46.550311999999394
+    },
+    {
+        "payloadSizeInByte": 2,
+        "messagesPerSecond": 71000,
+        "dataGenerationInMs": 0.0038640000057057478,
+        "executionInMs": 4.336649999997462,
+        "allSentInMs": 4.339348000001337
+    },
+    {
+        "payloadSizeInByte": 16,
+        "messagesPerSecond": 71000,
+        "dataGenerationInMs": 0.003886999998940155,
+        "executionInMs": 7.358944999999949,
+        "allSentInMs": 7.361491000003298
+    },
+    {
+        "payloadSizeInByte": 128,
+        "messagesPerSecond": 71000,
+        "dataGenerationInMs": 0.0032290000017383136,
+        "executionInMs": 79.30538900000101,
+        "allSentInMs": 79.3078300000052
+    }
+]

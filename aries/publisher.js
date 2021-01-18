@@ -45,7 +45,7 @@ async function init () {
     }
 
     for (let param of paramsToTest) {
-        const result = await runTest(param.payloadSizeInByte, param.messagesPerSecond);
+        const result = await runTest(param.payloadSizeInByte, param.messagesPerSecond).catch((e)=>console.log(e))
         results.push(result);
         param.done = true;
         fs.writeFileSync(resultJsonPath, JSON.stringify(results));
@@ -61,10 +61,17 @@ async function runTest (currentPayloadSizeInByte, currentMessagesPerSecond) {
 
     let start = now();
     // generate test data
-    const data = Array(messageCount).fill().map(() => crypto.randomBytes(currentPayloadSizeInByte));
+    // var dat = Array(messageCount).fill().map(() => crypto.randomBytes(currentPayloadSizeInByte));
+    var data = "";
+    if(currentPayloadSizeInByte == 16) data="{'content':''}";
+    else if(currentPayloadSizeInByte == 2) data="";
+    else if(currentPayloadSizeInByte == 128) data="{'content':'dwewefhiucwcweiuiwecnwaiebciwuebiuwefiuwhfiuwefhiucnwiuebv ii ius iusd iuds biusb iusb iusdb iuu iusiu bius ubuu'}";
+    else if(currentPayloadSizeInByte == 1024) data="{'content':'dwewefhiucwcweiuiwecnwaiebciwuebiuwefiuwhfiuwefhiucnwiuebv ii ius iusd iuds biusb iusb iusdb iuu iusiu bius ubuudwewefhiucwcweiuiwecnwaiebciwuebiuwefiuwhfiuwefhiucnwiuebv ii ius iusd iuds biusb iusb iusdb iuu iusiu bius ubuudwewefhiucwcweiuiwecnwaiebciwuebiuwefiuwhfiuwefhiucnwiuebv ii ius iusd iuds biusb iusb iusdb iuu iusiu bius ubuudwewefhiucwcweiuiwecnwaiebciwuebiuwefiuwhfiuwefhiucnwiuebv ii ius iusd iuds biusb iusb iusdb iuu iusiu bius ubuudwewefhiucwcweiuiwecnwaiebciwuebiuwefiuwhfiuwefhiucnwiuebv ii ius iusd iuds biusb iusb iusdb iuu iusiu bius ubuudwewefhiucwcweiuiwecnwaiebciwuebiuwefiuwhfiuwefhiucnwiuebv ii ius iusd iuds biusb iusb iusdb iuu iusiu bius ubuudwewefhiucwcweiuiwecnwaiebciwuebiuwefiuwhfiuwefhiucnwiuebv ii ius iusd iuds biusb iusb iusdb iuu iusiu bius ubuudwewefhiucwcweiuiwecnwaiebciwuebiuwefiuwhfiuwefhiucnwiuebv ii ius iusd iuds biusb iusb iusdb iuu iusiu bius ubuudwewefhiucwcweiuiwecnwaiebciwuebiuwefiuwhfiuwefhiucnwiuebv ii ius iusd iuds biusb iusb iusdb iuu iusiu bius ubuu'}"
     const dataGenerationInMs = now() - start;
 
     const timer = new NanoTimer();
+
+    // console.log(data)
 
     start = now();
     await new Promise((resolve) => {
@@ -73,7 +80,7 @@ async function runTest (currentPayloadSizeInByte, currentMessagesPerSecond) {
             var options = {
                 host: '192.168.6.2',
                 port: 8002,
-                path: '/connections/a4eac28e-db61-4c96-b199-05ddcd5336ab/send-message',
+                path: '/connections/8c19b33f-775a-453b-87da-861bfd7a9657/send-message',
                 method: 'POST'
               };
               
@@ -90,19 +97,19 @@ async function runTest (currentPayloadSizeInByte, currentMessagesPerSecond) {
             //   var message = {"content": data};
               // write data to request body
             //   console.log(JSON.stringify({"content": data[counter].toString()}))
-              req.write(JSON.stringify({"content": data[counter].toString()}));
+              req.write(data);
               req.end();
             counter++;
         };
         sendData();
         timer.setInterval(() => {
-            if (counter >= data.length) {
+            if (counter >= currentPayloadSizeInByte) {
                 timer.clearInterval();
                 return resolve();
             }
             sendData();
         }, '', `${intervalInMilliseconds}m`);
-    });
+    }).catch((e)=> console.log(e))
     const executionInMs = now() - start;
 
     // coapjs stores incoming and outgoing messages in stores and sending is deferred

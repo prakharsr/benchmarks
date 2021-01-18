@@ -70,14 +70,13 @@ async function runTest (currentPayloadSizeInByte, currentMessagesPerSecond) {
     await new Promise((resolve) => {
         let counter = 0;
         const sendData = () => {
-            var req = coap.request(serverUrl)
-
-            req.on('response', function(res) {
-              res.pipe(data[counter])
-              res.on('end', function() {
-              })
+                        var req = coap.request({
+                host: '192.168.7.1',
+                port: 5683,
+                method: 'POST'
             })
-          
+
+            req.write(data[counter])          
             req.end()
             counter++;
         };
@@ -109,7 +108,7 @@ function generateParams () {
     const params = [];
     for (let i = messagesPerSecond.start; i < messagesPerSecond.end; i += messagesPerSecond.stepSize) {
         for (let j = payloadSizeInByte.start; j < payloadSizeInByte.end; j *= payloadSizeInByte.stepFactor) {
-            if (j * i > bytePerSecondCap) {
+            if (j * i > bytePerSecondCap || j == 8192) {
                 continue;
             }
             params.push({

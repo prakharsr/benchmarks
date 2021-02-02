@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "dependencies": {
     "coap": "^0.24.0",
+    "cross-blob": "^2.0.0",
     "nanotimer": "^0.3.15",
     "performance-now": "^2.1.0"
   }

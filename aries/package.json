@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "dependencies": {
     "coap": "^0.24.0",
+    "cross-blob": "^2.0.0",
     "http": "0.0.1-security",
     "jsonapi-serializer": "^3.6.6",
     "nanotimer": "^0.3.15",

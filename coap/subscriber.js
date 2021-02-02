@@ -6,7 +6,7 @@ const now = require('performance-now');
 const resultJsonPath = 'results/results_subscriber.json';
 const resumeLastTest = false;
 
-const serverUrl = 'coap://localhost:5683';
+const serverUrl = 'coap://192.168.7.1:5683';
 
 async function init() {
   console.log('coap test server (subscriber)')
@@ -29,25 +29,25 @@ async function init() {
       start = now();
       console.log(`${(new Date()).toISOString()} | test started`);
     }
-    res.end('Hello ' + req.url.split('/')[1] + '\n')
+    res.end(JSON.stringify(JSON.parse(req["payload"].toString('utf8'))))
   })
 
-  setInterval(() => {
-    const diff = messageCount - oldMessageCount;
-    oldMessageCount = messageCount;
-    if (diff === 0 && start) {
-      const allReceivedInMs = now() - start;
-      start = null;
-      results.push({
-        allReceivedInMs,
-        messagesPerSecondReceived: messageCount / (allReceivedInMs / 1000),
-      });
-      fs.writeFileSync(resultJsonPath, JSON.stringify(results));
-      messageCount = 0;
-      oldMessageCount = 0;
-      console.log(`${(new Date()).toISOString()} | test done`);
-    }
-  }, 100);
+  // setInterval(() => {
+  //   const diff = messageCount - oldMessageCount;
+  //   oldMessageCount = messageCount;
+  //   if (diff === 0 && start) {
+  //     const allReceivedInMs = now() - start;
+  //     start = null;
+  //     results.push({
+  //       allReceivedInMs,
+  //       messagesPerSecondReceived: messageCount / (allReceivedInMs / 1000),
+  //     });
+  //     fs.writeFileSync(resultJsonPath, JSON.stringify(results));
+  //     messageCount = 0;
+  //     oldMessageCount = 0;
+  //     console.log(`${(new Date()).toISOString()} | test done`);
+  //   }
+  // }, 100);
 }
 
 init();

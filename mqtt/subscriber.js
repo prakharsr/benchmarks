@@ -6,7 +6,7 @@ const now = require('performance-now');
 const resultJsonPath = 'results/results_subscriber.json';
 const resumeLastTest = false;
 
-const serverUrl = 'tcp://localhost:1883';
+const serverUrl = 'tcp://127.0.0.1:1883';
 
 async function init() {
   console.log(`${(new Date()).toISOString()} | connecting to ${serverUrl} ..`);
@@ -30,6 +30,7 @@ async function init() {
   let start = null;
   client.on('message', (topic, message) => {
     // do nothing
+    console.log(message.toString('utf8'))
     messageCount += 1;
     if (!start) {
       start = now();

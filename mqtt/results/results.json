@@ -1,0 +1,1 @@
+[{"payloadSizeInByte":490,"messagesPerSecond":10000,"dataGenerationInMs":913.957703,"executionInMs":10000.516931999999,"allSentInMs":10056.871873999999,"minLatency":0.10840600000028644,"maxLatency":43.74591900000087,"totalLatency":41978.90090999985,"avgLatency":0.4197890090999985,"totalSentMessages":100000,"totalReceivedMessages":100000}]
